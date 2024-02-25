@@ -38,6 +38,8 @@ function playGame(){
     for(let i=0;i<5;i++){
         let computerSelection=getComputerChoice();
         let playerSelection=prompt("enter 'rock','paper' or 'scissor'");
+        playerSelection=playerSelection.toLowerCase();
+
         if((playerSelection==='rock')||(playerSelection==='paper')||(playerSelection==='scissor')){
             console.log(playRound(playerSelection,computerSelection));
         }
