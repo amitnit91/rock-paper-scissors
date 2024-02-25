@@ -1,99 +1,62 @@
 let win=0;
 let lose=0;
-let equal=0;
-//function to genrate a random choice btn rock,paper and scissors
+let tie=0;
+
+//function for computer choise
 function getComputerChoice(){
-    let choice=Math.floor(Math.random()*3);
-    if (choice===0){
-        return "rock";
-    }
-    else if(choice===1){
-        return "paper";
-    }
-    else if(choice===2){
-        return "scissors";
-    }
-    
+    let choise=['rock','paper','scissor'];
+    let result=Math.floor(Math.random()*choise.length);
+    return choise[result];
 }
 
-//function to return the winner of game btn player and computer
+//function to play rock paper scissor and decide the winner of round
 function playRound(playerSelection,computerSelection){
     playerSelection=playerSelection.toLowerCase();
-    switch(playerSelection){
-        case "rock":{
-            if(computerSelection==="rock"){
-                let result="Equal! both chooses 'rock' ,so play again";
-                equal++;
-                return result;
-            }
-            else if(computerSelection==="paper"){
-                let result="You lose! paper beats rock"
-                lose++;
-                return result;
-            }
-            else {
-                let result="You Win! rock beats scissors"
-                win++;
-                return result;
-            }
-        }
-        case "paper":{
-            if(computerSelection==="rock"){
-                let result="You Win! paper beats rock";
-                win++;
-                return result;
-            }
-            else if(computerSelection==="paper"){
-                let result="Equal! both choose paper, so play again";
-                equal++;
-                return result;
-            }
-            else {
-                let result="You Lose!, scisors beats paper";
-                lose++
-                return result;
-            }
-        }
-        case "scissors":{
-            if(computerSelection==="rock"){
-                let result="You Lose! rock beats scissors";
-                lose++;
-                return result;
-            }
-            else if(computerSelection==="paper"){
-                let result="You Win! scissors beats paper"
-                win++;
-                return result;
-            }
-            else {
-                let result="Equal! both choose scissors, so play again"
-                equal++;
-                return result;
-            }
-        }
+
+    if(playerSelection===computerSelection){
+        tie++;
+        return "it is a TIE"
     }
-    
+    else if(
+        (playerSelection==="rock" && computerSelection ==="scissor")||
+        (playerSelection==="paper"&& computerSelection === "rock")||
+        (playerSelection==="scissor"&& computerSelection==="paper") 
+    ){
+        win++;
+        return `You WIN! ${playerSelection} beats ${computerSelection}`; 
+    }
+    else{
+        lose++;
+        return `You LOSE! ${computerSelection} beats ${playerSelection}`; 
+        
+    }
 
 }
 
-//function to start this game
+//function to play this game
 function playGame(){
     for(let i=0;i<5;i++){
-    let computerSelection= getComputerChoice();
-    let playerSelection= prompt("Enter Your Choice btn 'rock','paper','scissors");
-    let winner=playRound(playerSelection,computerSelection);
-    console.log(winner);
-}
-if(win<lose){
-    console.log(`you LOSE the game, your score is win:${win}, lose:${lose}, equal:${equal}  `);
-}
-else if(win>lose){
-console.log(`you WIN the game, your score is win:${win}, lose:${lose}, equal:${equal}  `);
-}
-else{
-console.log(`you are Equal in the game, your score is win:${win}, lose:${lose}, equal:${equal}  `);
+        let computerSelection=getComputerChoice();
+        let playerSelection=prompt("enter 'rock','paper' or 'scissor'");
+        if((playerSelection==='rock')||(playerSelection==='paper')||(playerSelection==='scissor')){
+            console.log(playRound(playerSelection,computerSelection));
+        }
+        else{
+        alert("Wrong input,Enter correct choise");
+        }
+        
+    }
+    if(win>lose){
+        console.log(`You WIN the game,with score -win:${win}, lose:${lose}, tie:${tie}`);
+    }
+    else if(win<lose){
+        console.log(`You LOSE the game,with score -win:${win}, lose:${lose}, tie:${tie}`);
 
+    }
+    else{
+        console.log(`Game is a TIE, with score -win:${win}, lose:${lose}, tie:${tie}`);
+
+    }
 }
-}
+
 playGame();
-
