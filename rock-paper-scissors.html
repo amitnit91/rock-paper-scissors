@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scirrors Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="btn-container">
-        <button class="btn" name="rock">Rock</button>
-        <button class="btn" name="paper">Paper</button>
-        <button class="btn" name="scissor">Scissor</button>
+    <div id="heading">Rock Paper Scissor</div>
+    <div id="flex-container">
+        <div id="score">
+            <div id="player"></div>
+            <div id="computer"></div>
+        </div>
+        
+            <div id="btn-container">
+                <button class="btn" id="btn1" name="rock">Rock</button>
+                <button class="btn" id="btn2" name="paper">Paper</button>
+                <button class="btn" id="btn3" name="scissor">Scissor</button>
+            </div>
+            <div id="display-result"></div>   
+        
     </div>
-    <div id="display-result"></div>   
+    <button  id="play-again" onclick="playAgain()">Play again</button>
     <script src="rps.js"></script>    
 </body>
 </html>

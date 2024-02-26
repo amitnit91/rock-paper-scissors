@@ -1,0 +1,70 @@
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+#flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    flex-direction: column;
+}
+#score{
+    padding-top:30px;
+}
+#btn-container{
+    display: flex;
+    justify-content:space-around;
+    width: 500px;
+    height: 40vh;
+    align-items: center;
+}
+.btn{
+    background-color:rgb(230, 98, 21) ;
+    border:none;
+    color: white;
+    padding: 25px 25px;
+    font-size: 18px ;
+    width:120px; 
+    border-radius: 10%;
+    font-weight: bold;   
+}
+.btn:hover{
+    background-color: brown;
+    cursor:pointer;
+}
+
+#display-result{
+    width:fit-content;
+    margin: auto;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding-bottom: 30px;
+    color: green;
+}
+#container{
+    display: block;
+
+}
+#heading{
+    background-color: black;
+    color:white;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    padding:40px 0px;    
+}
+#play-again{
+    background-color: blue;
+    color:white;
+    margin:auto;
+    width: 140px;
+    margin-left: 45%;
+    padding: 25px 25px;
+    font-size: 18px ;
+    width:120px; 
+    border-radius: 10%;
+    font-weight: bold;  
+}
