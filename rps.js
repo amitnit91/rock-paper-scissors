@@ -35,29 +35,29 @@ function playRound(playerSelection,computerSelection){
 
 //function to play this game
 function playGame(){
-    for(let i=0;i<5;i++){
-        let computerSelection=getComputerChoice();
-        let playerSelection=prompt("enter 'rock','paper' or 'scissor'");
-        playerSelection=playerSelection.toLowerCase();
-
-        if((playerSelection==='rock')||(playerSelection==='paper')||(playerSelection==='scissor')){
-            console.log(playRound(playerSelection,computerSelection));
-        }
-        else{
-        alert("Wrong input,Enter correct choise");
-        }
-        
+    const btn=document.querySelectorAll('.btn');
+    const displayResult=document.querySelector('#display-result');
+    for(val of btn){
+        val.addEventListener('click',function(event){
+            let playerSelection=event.target.name;
+            let computerSelection=getComputerChoice();
+            let roundResult=playRound(playerSelection,computerSelection);
+            console.log(roundResult,win,lose);
+            displayResult.textContent=roundResult;
+        });
+    }       
+    
+    if(win===5){
+        displayResult.textContent=`You WIN the game,with score -win:${win}, lose:${lose}, tie:${tie}`;
+        return;
     }
-    if(win>lose){
-        console.log(`You WIN the game,with score -win:${win}, lose:${lose}, tie:${tie}`);
+    else if(lose===5){
+        displayResult.textContent=`You LOSE the game,with score -win:${win}, lose:${lose}, tie:${tie}`;
+        return;
     }
-    else if(win<lose){
-        console.log(`You LOSE the game,with score -win:${win}, lose:${lose}, tie:${tie}`);
-
-    }
-    else{
-        console.log(`Game is a TIE, with score -win:${win}, lose:${lose}, tie:${tie}`);
-
+    else if(win===5 && lose===5){
+        displayResult.textContent=`Game is a TIE, with score -win:${win}, lose:${lose}, tie:${tie}`;
+        return;
     }
 }
 
