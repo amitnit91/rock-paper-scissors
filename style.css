@@ -68,3 +68,7 @@ body{
     border-radius: 10%;
     font-weight: bold;  
 }
+#play-again:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}
